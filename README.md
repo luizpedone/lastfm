@@ -16,6 +16,8 @@ composer require luizpedone/lastfm
 <?php
 
 $lastFm = new \LuizPedone\LastFM\LastFM('your-last-fm-api-key');
-$lastFmUser = 'luiz-pedone';
-$lastFm->getTopArtists($lastFmUser);
+$lastFm->limit(10)
+    ->page(2)
+    ->period(\LuizPedone\LastFM\Period::LAST_MONTH)
+    ->getTopArtists($lastFmUser);
 ```
