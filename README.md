@@ -2,7 +2,7 @@
 
 This package wraps the last.fm API in a easy to use PHP package. This package is under development at the moment.
 
-### Installation
+## Installation
 
 To install it using composer just execute the following command:
 
@@ -10,7 +10,7 @@ To install it using composer just execute the following command:
 composer require luizpedone/lastfm
 ```
 
-### How to use it
+## How to use it
 
 ```php
 <?php
