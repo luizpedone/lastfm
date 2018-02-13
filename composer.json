@@ -1,0 +1,29 @@
+{
+  "name": "luizpedone/lastfm",
+  "description": "Wrapper of the last.fm API.",
+  "type": "library",
+  "require": {
+    "phpunit/phpunit": "^7.0",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "LuizPedone\\LastFM\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/"
+    ]
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Luiz Pedone",
+      "email": "luiz.pedone@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "mockery/mockery": "^1.0"
+  }
+}
