@@ -22,4 +22,4 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
 
       - run: vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-      - run: CODECLIMATE_REPO_TOKEN="${CODE_CLIMATE_KEY}" vendor/bin/test-reporter
+      - run: vendor/bin/test-reporter
