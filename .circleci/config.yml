@@ -21,5 +21,4 @@ jobs:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
 
-      - run: vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-      - run: vendor/bin/test-reporter
+      - run: vendor/bin/phpunit --coverage-clover build/logs/clover.xml && vendor/bin/test-reporter
