@@ -1,7 +1,7 @@
 # Last.fm API Wrapper
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/0ba948481d444492a2f7/maintainability)](https://codeclimate.com/github/luizpedone/lastfm/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0ba948481d444492a2f7/test_coverage)](https://codeclimate.com/github/luizpedone/lastfm/test_coverage)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/0ba948481d444492a2f7/maintainability)](https://codeclimate.com/github/luizpedone/lastfm/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0ba948481d444492a2f7/test_coverage)](https://codeclimate.com/github/luizpedone/lastfm/test_coverage)
 [![CircleCI](https://circleci.com/gh/luizpedone/lastfm/tree/master.svg?style=svg)](https://circleci.com/gh/luizpedone/lastfm/tree/master)
 
 This package wraps the last.fm API in a easy to use PHP package. This package is under development at the moment.
