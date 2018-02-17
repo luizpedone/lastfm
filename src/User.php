@@ -86,11 +86,27 @@ class User
         foreach ($formattedJson->topartists->artist as $artist) {
             $formattedArtistOutput = [
                 'name' => $artist->name,
-                'playcount' => $artist->playcount
+                'playcount' => $artist->playcount,
+                'mbid' => $artist->mbid,
+                'url' => $artist->url,
+                'streamable' => 0,
+                'images' => $this->buildImagesResponse($artist->image),
+                'ranking' => $artist->{'@attr'}->rank
             ];
             $topArtists[] = $formattedArtistOutput;
         }
 
         return $topArtists;
+    }
+
+    private function buildImagesResponse($images)
+    {
+        $imagesResponse = [];
+
+        foreach ($images as $image) {
+            $imagesResponse[$image->size] = $image->{'#text'};
+        }
+
+        return $imagesResponse;
     }
 }
