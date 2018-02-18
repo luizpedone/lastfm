@@ -39,26 +39,6 @@ class TopArtist
      */
     private $ranking;
 
-    /**
-     * TopArtist constructor.
-     * @param $name
-     * @param $playCount
-     * @param $mbid
-     * @param $url
-     * @param $isStreamAvailable
-     * @param $ranking
-     */
-    public function __construct($name, $playCount, $mbid, $url, $isStreamAvailable, $images, $ranking)
-    {
-        $this->name = $name;
-        $this->playCount = $playCount;
-        $this->mbid = $mbid;
-        $this->url = $url;
-        $this->isStreamAvailable = (boolean) $isStreamAvailable;
-        $this->images = $this->buildImagesArray($images);
-        $this->ranking = $ranking;
-    }
-
     private function buildImagesArray($images)
     {
         $imagesResponse = [];
@@ -124,5 +104,82 @@ class TopArtist
     public function getImages(): array
     {
         return $this->images;
+    }
+
+    /**
+     * @param string $name
+     * @return TopArtist
+     */
+    public function setName(string $name): TopArtist
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param int $playCount
+     * @return TopArtist
+     */
+    public function setPlayCount(int $playCount): TopArtist
+    {
+        $this->playCount = $playCount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $mbid
+     * @return TopArtist
+     */
+    public function setMbid(string $mbid): TopArtist
+    {
+        $this->mbid = $mbid;
+
+        return $this;
+    }
+
+    /**
+     * @param string $url
+     * @return TopArtist
+     */
+    public function setUrl(string $url): TopArtist
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $isStreamAvailable
+     * @return TopArtist
+     */
+    public function setIsStreamAvailable(bool $isStreamAvailable): TopArtist
+    {
+        $this->isStreamAvailable = $isStreamAvailable;
+
+        return $this;
+    }
+
+    /**
+     * @param array $images
+     * @return TopArtist
+     */
+    public function setImages(array $images): TopArtist
+    {
+        $this->images = $this->buildImagesArray($images);
+
+        return $this;
+    }
+
+    /**
+     * @param int $ranking
+     * @return TopArtist
+     */
+    public function setRanking(int $ranking): TopArtist
+    {
+        $this->ranking = $ranking;
+
+        return $this;
     }
 }

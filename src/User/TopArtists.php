@@ -87,17 +87,28 @@ class TopArtists
         $topArtists = [];
 
         foreach ($formattedJson->topartists->artist as $artist) {
-            $topArtists[] = new TopArtist(
-                $artist->name,
-                $artist->playcount,
-                $artist->mbid,
-                $artist->url,
-                $artist->streamable,
-                $artist->image,
-                $artist->{'@attr'}->rank
-            );
+            $topArtists[] = $this->createTopArtistFromResponse($artist);
         }
 
         return $topArtists;
+    }
+
+    /**
+     * @param $artist
+     * @return TopArtist
+     */
+    private function createTopArtistFromResponse($artist): TopArtist
+    {
+        $topArtist = new TopArtist();
+
+        $topArtist->setName($artist->name)
+            ->setPlayCount($artist->playcount)
+            ->setMbid($artist->mbid)
+            ->setUrl($artist->url)
+            ->setIsStreamAvailable($artist->streamable)
+            ->setImages($artist->image)
+            ->setRanking($artist->{'@attr'}->rank);
+
+        return $topArtist;
     }
 }
