@@ -22,7 +22,9 @@ composer require luizpedone/lastfm
 $lastFm = new \LuizPedone\LastFM\LastFM('your-last-fm-api-key');
 
 $topArtists = $lastFm->user()
+    ->topArtists('luiz-pedone')
     ->period(Period::LAST_MONTH)
     ->limit(10)
-    ->getTopArtists('luiz-pedone');
+    ->get();
+
 ```
