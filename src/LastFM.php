@@ -6,18 +6,15 @@ use GuzzleHttp\Client;
 
 class LastFM
 {
-    /**
-     * @var User
-     */
-    private $user;
+    private $apiKey;
 
     public function __construct($apiKey)
     {
-        $this->user = new User(new Client(), $apiKey);
+        $this->$apiKey = $apiKey;
     }
 
     public function user()
     {
-        return $this->user;
+        return new User(new Client(), $this->apiKey);
     }
 }
