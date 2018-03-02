@@ -1,6 +1,6 @@
 <?php
 
-namespace LuizPedone\LastFM\User;
+namespace LuizPedone\LastFM\User\Entity;
 
 class TopArtist
 {

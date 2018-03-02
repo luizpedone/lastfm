@@ -5,7 +5,7 @@ namespace LuizPedone\LastFM\Tests;
 use GuzzleHttp\Client;
 use LuizPedone\LastFM\Period;
 use LuizPedone\LastFM\User;
-use LuizPedone\LastFM\User\TopArtist;
+use LuizPedone\LastFM\User\Entity\TopArtist;
 use LuizPedone\LastFM\User\TopArtists;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;

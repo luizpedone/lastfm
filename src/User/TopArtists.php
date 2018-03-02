@@ -1,12 +1,15 @@
 <?php
+
 namespace LuizPedone\LastFM\User;
+
+use LuizPedone\LastFM\User\Entity\TopArtist;
 
 class TopArtists
 {
     const TOP_ARTISTS = 'gettopartists';
 
     /**
-     * @var Client
+     * @var \GuzzleHttp\Client
      */
     private $client;
 
