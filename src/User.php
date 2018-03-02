@@ -4,6 +4,7 @@ namespace LuizPedone\LastFM;
 
 use GuzzleHttp\Client;
 use LuizPedone\LastFM\User\TopArtists;
+use LuizPedone\LastFM\User\TopTracks;
 
 class User
 {
@@ -26,5 +27,10 @@ class User
     public function topArtists($user)
     {
         return new TopArtists($this->client, $this->apiKey, $user);
+    }
+
+    public function topTracks($user)
+    {
+        return new TopTracks($this->client, $this->apiKey, $user);
     }
 }
