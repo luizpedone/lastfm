@@ -4,42 +4,13 @@ namespace LuizPedone\LastFM\User;
 
 use LuizPedone\LastFM\User\Entity\TopArtist;
 
-class TopArtists
+class TopArtists extends ApiHandler
 {
-    const TOP_ARTISTS = 'gettopartists';
-
-    /**
-     * @var \GuzzleHttp\Client
-     */
-    private $client;
-
-    /**
-     * @var string
-     */
-    private $apiKey;
-
-    /**
-     * @var array
-     */
-    private $additionalParameters = [];
-
-    /**
-     * @var string
-     */
-    private $user;
-
-    public function __construct($client, $apiKey, $user)
-    {
-        $this->client = $client;
-        $this->apiKey = $apiKey;
-        $this->user = $user;
-    }
+    const ENDPOINT = 'gettopartists';
 
     public function get()
     {
-        $topTracks = $this->client->request('GET', $this->buildRequestUrl(self::TOP_ARTISTS, $this->user));
-
-        return $this->buildResponseFromBody($topTracks->getBody());
+        return $this->buildResponseFromBody($this->getFromLastFmApi(self::ENDPOINT));
     }
 
     public function limit(int $limit)
@@ -63,33 +34,11 @@ class TopArtists
         return $this;
     }
 
-    private function buildRequestUrl($method, $user)
+    protected function buildResponseFromBody($body)
     {
-        $baseUrl = 'http://ws.audioscrobbler.com/2.0/?method=user.%s&user=%s&api_key=%s&format=json';
-
-        if (sizeof($this->additionalParameters) > 0) {
-            $baseUrl = $baseUrl . '&' . http_build_query($this->additionalParameters);
-        }
-
-        return sprintf(
-            $baseUrl,
-            $method,
-            $user,
-            $this->apiKey
-        );
-    }
-
-    private function parseJson($json)
-    {
-        return json_decode($json);
-    }
-
-    private function buildResponseFromBody($body)
-    {
-        $formattedJson = $this->parseJson($body);
         $topArtists = [];
 
-        foreach ($formattedJson->topartists->artist as $artist) {
+        foreach ($body->topartists->artist as $artist) {
             $topArtists[] = $this->createTopArtistFromResponse($artist);
         }
 
