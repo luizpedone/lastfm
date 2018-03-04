@@ -27,10 +27,9 @@ $topArtists = $lastFm->user()
     ->limit(10)
     ->get();
 
-// Outputs an array of \LuizPedone\LastFM\User\TopArtist objects
+// Outputs an array of \LuizPedone\LastFM\User\Entity\TopArtist objects
 foreach ($topArtists as $topArtist) {
     echo $topArtist->getName();
     echo $topArtist->getPlayCount();
 }
-
 ```
